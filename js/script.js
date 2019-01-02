@@ -75,7 +75,44 @@ $(document).ready(function() {
     	
 	});
     
+    //  Fancybox plugin used for displaying full screen images in site
+    $("[data-fancybox]").fancybox();
     
+    // Isotope for displaying pictures
+    $(".items").isotope({
+    	filter: '*',
+    	animationOptions: {
+    		duration: 1500,
+    		easing: 'linear',
+    		queue: false
+    	}
+    });
+    
+    // Isotope plugin use for filtering pictures
+    $("#filters a").click(function(){
+    	
+    	// Change from element current
+    	// Access current
+    	$("filters .current").removeClass("current");
+    	// This refers to current so current button clicked, add class current
+    	$(this).addClass("current");
+    	
+    	var selector = $(this).attr("data-filter");
+    	
+	    // Isotope for displaying pictures
+	    $(".items").isotope({
+	    	filter: selector,
+	    	animationOptions: {
+	    		duration: 1500,
+	    		easing: 'linear',
+	    		queue: false
+	    	}
+	    });
+	    
+	    // No more actions
+	    return false;
+	    
+    });
 	
 });
 
