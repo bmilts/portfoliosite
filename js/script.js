@@ -1,3 +1,10 @@
+//  $(window).on("load", function(){
+// 	$(".loader .inner").fadeOut(500, function(){
+// 		$(".loader").fadeOUt(750);
+// 	});
+
+// });
+
 $(document).ready(function() {
 
     // Jquery function for superslides   

@@ -356,6 +356,46 @@ body {
 	padding: 0;
 }
 
+/* COPYRIGHT SECTION */
+
+.copyrightSection {
+	background-color: var(--main-theme-color);
+	color: #fff;
+	padding: 30px 5px;
+}
+
+.copyrightSection p {
+	margin: 0;
+}
+
+/* NAVIGATION MENU */
+
+#navigation {
+	background-color: var(--main-theme-color);
+	padding: 20px 10px;
+	/* z-index of 100 always above*/
+	z-index: 100;
+}
+
+#navigation li {
+	padding: 0 10px;
+	
+}
+
+#navigation li a {
+	color: #fff;
+}
+
+.navbar-brand,
+.navbar-brand:hover {
+	color: #fff;
+}
+
+/* Re-assign bootstrap icon to icons8 downloaded */ 
+.navbar-toggler-icon {
+	background: url(../img/icons/menuWhite.png);
+	background-size: 100%;
+}
 
 
 
