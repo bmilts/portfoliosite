@@ -1,9 +1,19 @@
-//  $(window).on("load", function(){
-// 	$(".loader .inner").fadeOut(500, function(){
-// 		$(".loader").fadeOUt(750);
-// 	});
-
-// });
+// Website loader code
+$(window).on("load", function(){
+	$(".loader .inner").fadeOut(500, function(){
+		$(".loader").fadeOut(750);
+	});
+	
+	// Isotope for displaying pictures
+    $(".items").isotope({
+    	filter: '*',
+    	animationOptions: {
+    		duration: 1500,
+    		easing: 'linear',
+    		queue: false
+    	}
+    });
+});
 
 $(document).ready(function() {
 
@@ -15,13 +25,14 @@ $(document).ready(function() {
 	});
 
 	var typed = new Typed('.typed', {
-		strings: ["2:1 BSc Computer Science", "Python", "Unity Augmented Reality", "Android", "Blockchain", "IOS"],
-		typeSpeed: 110,
+		strings: ["2:1 BSc Computer Science", "Javascript", "PHP", "MYSQL", "Python", "Unity Augmented Reality", "Java", "Android","Blockchain", "IOS"],
+		typeSpeed: 150,
 		loop: true,
 		startDelay: 1000,
 		showCursor: false
 	});
 	
+	// Skill section carousel
 	$('.owl-carousel').owlCarousel({
 	    loop:true,
 	    items: 6,
@@ -40,8 +51,6 @@ $(document).ready(function() {
 	        }
 	    }
 	});
-	
-   
     
     // Get position of the element to offset
     var skillsTopOffset = $(".skillSection").offset().top;
@@ -85,16 +94,6 @@ $(document).ready(function() {
     //  Fancybox plugin used for displaying full screen images in site
     $("[data-fancybox]").fancybox();
     
-    // Isotope for displaying pictures
-    $(".items").isotope({
-    	filter: '*',
-    	animationOptions: {
-    		duration: 1500,
-    		easing: 'linear',
-    		queue: false
-    	}
-    });
-    
     // Isotope plugin use for filtering pictures
     $("#filters a").click(function(){
     	
@@ -120,6 +119,39 @@ $(document).ready(function() {
 	    return false;
 	    
     });
+    
+    // Smooth transition from Nav to Link
+    $("#navigation li a").click(function(e){
+    	e.preventDefault();
+    	
+    	// Get href attribute of item clicked on
+    	var targetElement = $(this).attr("href");
+    	var targetPosition = $(targetElement).offset().top;
+    	
+    	// Animate 
+    	$("html, body").animate({ scrollTop: targetPosition - 50 }, "slow");
+    });
+    
+    // Sticky Navigation menu
+    const nav = $("#navigation");
+    // nav bar position
+    const navTop = nav.offset().top;
 	
+	// When window is called call stickyNavigation
+	$(window).on("scroll", stickyNavigation);
+	
+	function stickyNavigation() {
+		
+		var body = $("body");
+		
+		if($(window).scrollTop() >= navTop) {
+			body.css("padding-top", nav.outerHeight() + "px");
+			body.addClass("fixedNav");
+		}
+		else {
+			body.css("padding-top", 0);
+			body.removeClass("fixedNav");
+		}
+	}
 });
 
